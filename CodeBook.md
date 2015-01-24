@@ -1,4 +1,6 @@
  
+ 24.1.2015
+ 
  This code book describes the variables, the data, and steps performed (in run_analysis.r) to clean up the said data. 
  Further information on the study and the original data can be found from here: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
  

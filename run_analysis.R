@@ -1,4 +1,4 @@
-
+#24.1.2015
 
 cleanData <- function() {
   
