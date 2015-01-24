@@ -2,10 +2,8 @@
 
 cleanData <- function() {
   
-  setwd("C://Users/lennoeev/My Documents/GitHub/cleandata")
-  setwd("C://Users/lennoeev/My Documents/GitHub/cleandata/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset")
-  
-  
+  setwd("C://Users/lennoeev/My Documents/GitHub/cleandata/wd")
+    
   ###Step1 (see codebook.md)
   
   featuresTable <- read.table("features.txt", header = FALSE)
@@ -18,14 +16,10 @@ cleanData <- function() {
   colnames(activityTable) <- c("Actnumber", "Activity")
   #reading in the activity labels and numbers
   
-  setwd("C://Users/lennoeev/My Documents/GitHub/cleandata/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/test")
-
   testDataPerson <- read.table("subject_test.txt", sep = " ", header = FALSE)
   testDataLabels <- read.table("y_test.txt", sep = " ", header = FALSE)
   testDataSet <- read.table("X_test.txt")
   #reading the test data, as well as corresponding info an test subject and activity
-
-  setwd("C://Users/lennoeev/My Documents/GitHub/cleandata/getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/train")
   
   trainDataPerson <- read.table("subject_train.txt", sep = " ", header = FALSE)
   trainDataLabels <- read.table("y_train.txt", sep = " ", header = FALSE)
@@ -63,14 +57,12 @@ cleanData <- function() {
   
   ###Step4 (see codebook.md)
   
-  setwd("C://Users/lennoeev/My Documents/GitHub/cleandata")
-  
   fullDataSetInterim <- merge(fullDataSet, activityTable, by.x = "Actnumber", by.y = "Actnumber", sort = FALSE)
   
   fullDataSet2 <- subset(fullDataSetInterim, select = Subject:Activity)
   #replaces Activity numbers with full descriptive labels
   
-  write.csv(fullDataSet2, file = "fulldata.csv")
+  write.table(fullDataSet2, file = "fulldata.txt",  sep = ",", row.name=FALSE)
   #writes full data set into a csv file in working folder
   
   ###Step5 (see codebook.md)
@@ -80,7 +72,7 @@ cleanData <- function() {
   summaryDataSet <- ddply(fullDataSet2, .(Subject,Activity), numcolwise(mean))
   #summarises the data by subject and activity
   
-  write.table(summaryDataSet, file = "summarydata.txt", row.name=FALSE)
+  write.table(summaryDataSet, file = "summarydata.txt", sep = ",", row.name=FALSE)
   #writes summarised data set into a txt file
   
   
