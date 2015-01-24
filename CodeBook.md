@@ -4,17 +4,17 @@
  
 
 # Output data: 
-The script produces two separate csv files. 
+The script produces two separate txt files. 
 
-1. fulldata.csv 
- This csv file contains data for each measurement for each test subject and activity. The actual measurement data is a subset, containing only mean and standard deviations for each measurement. 
+1. fulldata.txt
+ This file contains data for each measurement for each test subject and activity. The actual measurement data is a subset, containing only mean and standard deviations for each measurement. 
  
  "subject" - number identifying the test subject (person)
  "Activity" - a text value explaining what the test subject was doing at the time of the measurement. 
  "tBody*", fBody* and tGravity* - fields giving various mean() or standard deviation std() values for each measurement. 
  
-2. summarydata.csv 
-This csv file contains a summary of the data per test subject and activity. The summary is based on mean value for each person and activity. 
+2. summarydata.txt
+This file contains a summary of the data per test subject and activity. The summary is based on mean value for each person and activity. 
 
  "subject" - number identifying the test subject (person)
  "Activity" - a text value explaining what the test subject was doing at the time of the measurement. 
@@ -38,7 +38,7 @@ Then bind rows (Test and Training data).
 ## Step4:
 
 Make Activity data more meaningful by replacing number values with text.
-Print out fulldata.csv
+Print out fulldata.txt
   
 ## Step5 
 

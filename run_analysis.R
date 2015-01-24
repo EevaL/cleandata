@@ -65,8 +65,6 @@ cleanData <- function() {
   
   setwd("C://Users/lennoeev/My Documents/GitHub/cleandata")
   
-  #write.csv(fullDataSet, file = "fulldataTest.csv")
-  
   fullDataSetInterim <- merge(fullDataSet, activityTable, by.x = "Actnumber", by.y = "Actnumber", sort = FALSE)
   
   fullDataSet2 <- subset(fullDataSetInterim, select = Subject:Activity)
@@ -82,8 +80,8 @@ cleanData <- function() {
   summaryDataSet <- ddply(fullDataSet2, .(Subject,Activity), numcolwise(mean))
   #summarises the data by subject and activity
   
-  write.csv(summaryDataSet, file = "summarydata.csv")
-  #writes summarised data set into a csv file
+  write.table(summaryDataSet, file = "summarydata.txt", row.name=FALSE)
+  #writes summarised data set into a txt file
   
   
 }
